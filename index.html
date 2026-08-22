@@ -220,7 +220,127 @@
       border-radius: 20px;
     }
 
-    /* 5. Social Media / Contact */
+    /* 5. Single Square Sliding Carousel */
+    .gallery-section {
+      margin-bottom: 4rem;
+    }
+    .carousel-container {
+      max-width: 800px;
+      margin: 0 auto;
+      position: relative;
+    }
+    .carousel-frame {
+      position: relative;
+      width: 100%;
+      aspect-ratio: 16 / 10;
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: 0 12px 35px rgba(0, 0, 0, 0.12);
+      background-color: #0f172a;
+    }
+    .carousel-slide {
+      position: absolute;
+      inset: 0;
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity 0.7s ease-in-out, visibility 0.7s ease-in-out;
+    }
+    .carousel-slide.active {
+      opacity: 1;
+      visibility: visible;
+    }
+    .carousel-slide img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+    .carousel-caption {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: linear-gradient(to top, rgba(15, 23, 42, 0.92) 0%, rgba(15, 23, 42, 0.4) 65%, transparent 100%);
+      padding: 2rem 2rem 1.5rem 2rem;
+      color: #ffffff;
+      text-align: left;
+    }
+    .carousel-badge {
+      display: inline-block;
+      font-size: 0.75rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+      background: rgba(245, 158, 11, 0.9);
+      color: #0f172a;
+      padding: 3px 10px;
+      border-radius: 6px;
+      margin-bottom: 6px;
+    }
+    .carousel-caption h3 {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: 1.4rem;
+      font-weight: 700;
+      margin-bottom: 4px;
+    }
+    .carousel-caption p {
+      font-size: 0.95rem;
+      color: #e2e8f0;
+      margin: 0;
+      line-height: 1.4;
+    }
+
+    /* Carousel Nav Arrows */
+    .carousel-btn {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.9);
+      color: var(--primary);
+      border: none;
+      font-size: 1.25rem;
+      font-weight: bold;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      z-index: 10;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.25);
+      transition: all 0.2s ease;
+    }
+    .carousel-btn:hover {
+      background: #ffffff;
+      color: var(--accent);
+      transform: translateY(-50%) scale(1.1);
+    }
+    .carousel-prev { left: 16px; }
+    .carousel-next { right: 16px; }
+
+    /* Carousel Dots */
+    .carousel-dots {
+      display: flex;
+      justify-content: center;
+      gap: 8px;
+      margin-top: 14px;
+    }
+    .dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background-color: #cbd5e1;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+    .dot.active {
+      background-color: var(--accent);
+      width: 26px;
+      border-radius: 10px;
+    }
+
+    /* 6. Social Media / Contact */
     .contact-section {
       background: var(--bg-card);
       border-radius: 20px;
@@ -272,7 +392,7 @@
       fill: currentColor;
     }
 
-    /* 6. Location Section */
+    /* 7. Location Section */
     .location-box {
       background: var(--primary);
       color: #ffffff;
@@ -293,6 +413,12 @@
       font-size: 1.15rem;
       margin-bottom: 1.75rem;
     }
+    .location-actions {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
     .map-frame {
       border-radius: 14px;
       overflow: hidden;
@@ -305,6 +431,7 @@
       display: inline-flex;
       align-items: center;
       justify-content: center;
+      gap: 0.5rem;
       padding: 0.85rem 1.75rem;
       border-radius: 12px;
       font-weight: 700;
@@ -321,6 +448,16 @@
       background: linear-gradient(135deg, #b45309, #92400e);
       transform: translateY(-2px);
       box-shadow: 0 6px 20px rgba(180, 83, 9, 0.45);
+    }
+    .btn-apple-map {
+      background: #ffffff;
+      color: #000000;
+      box-shadow: 0 4px 15px rgba(255, 255, 255, 0.2);
+    }
+    .btn-apple-map:hover {
+      background: #f1f5f9;
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(255, 255, 255, 0.3);
     }
     .btn-youtube {
       background: #dc2626;
@@ -349,177 +486,42 @@
       .social-buttons { flex-direction: column; }
       .btn-social { justify-content: center; }
       .hero-buttons { flex-direction: column; }
+      .location-actions { flex-direction: column; }
+      .carousel-frame { aspect-ratio: 4 / 3; }
+      .carousel-caption { padding: 1.25rem; }
+      .carousel-caption h3 { font-size: 1.15rem; }
+      .carousel-caption p { font-size: 0.85rem; }
     }
-    /* ==========================================
-   Gallery Section Styling
-   ========================================== */
-.gallery-section {
-  padding: 80px 20px;
-  background-color: #f8fafc;
-}
-
-.gallery-container {
-  max-width: 1200px;
-  margin: 0 auto;
-}
-
-.gallery-header {
-  text-align: center;
-  margin-bottom: 48px;
-}
-
-.gallery-badge {
-  display: inline-block;
-  font-size: 0.85rem;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-  color: #2563eb;
-  background-color: #dbeafe;
-  padding: 6px 14px;
-  border-radius: 50px;
-  margin-bottom: 12px;
-}
-
-.gallery-header h2 {
-  font-size: 2.25rem;
-  font-weight: 800;
-  color: #0f172a;
-  margin-bottom: 10px;
-}
-
-.gallery-header p {
-  font-size: 1.1rem;
-  color: #64748b;
-  max-width: 600px;
-  margin: 0 auto;
-}
-
-/* Responsive Grid: 1 col on mobile, 2 on tablet, 3 or 4 on desktop */
-.gallery-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 24px;
-}
-
-.gallery-card {
-  border-radius: 16px;
-  overflow: hidden;
-  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.08), 0 4px 6px -4px rgba(0, 0, 0, 0.04);
-  background-color: #1e293b;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.gallery-card:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.15), 0 8px 10px -6px rgba(0, 0, 0, 0.08);
-}
-
-.gallery-img-wrapper {
-  position: relative;
-  width: 100%;
-  aspect-ratio: 4 / 3;
-  overflow: hidden;
-}
-
-.gallery-img-wrapper img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  display: block;
-  transition: transform 0.5s ease;
-}
-
-.gallery-card:hover .gallery-img-wrapper img {
-  transform: scale(1.08);
-}
-
-/* Gradient Overlay & Text */
-.gallery-overlay {
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(to top, rgba(15, 23, 42, 0.95) 0%, rgba(15, 23, 42, 0.4) 60%, transparent 100%);
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-end;
-  padding: 24px;
-  color: #ffffff;
-}
-
-.gallery-tag {
-  align-self: flex-start;
-  font-size: 0.75rem;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.8px;
-  background-color: rgba(255, 255, 255, 0.2);
-  backdrop-filter: blur(4px);
-  padding: 3px 10px;
-  border-radius: 4px;
-  margin-bottom: 8px;
-}
-
-.gallery-overlay h3 {
-  font-size: 1.25rem;
-  font-weight: 700;
-  margin: 0 0 6px 0;
-  line-height: 1.3;
-}
-
-.gallery-overlay p {
-  font-size: 0.88rem;
-  color: #cbd5e1;
-  margin: 0;
-  line-height: 1.4;
-}
-
-/* Mobile adjustments */
-@media (max-width: 640px) {
-  .gallery-section {
-    padding: 50px 16px;
-  }
-  
-  .gallery-header h2 {
-    font-size: 1.85rem;
-  }
-
-  .gallery-overlay {
-    padding: 18px;
-  }
-}
   </style>
 </head>
 <body>
 
-  <!-- Header / Navigation -->
+  <!-- 1. Header / Navigation -->
   <header>
     <div class="nav-container">
       <a href="#" class="logo">Sala Evangélica Charlotte</a>
       <nav>
         <a href="#reuniones">Reuniones</a>
+        <a href="#galeria">Galería</a>
         <a href="#contacto">Contacto</a>
         <a href="#ubicacion">Ubicación</a>
-        <a href="#galeria">Galería</a>
-
       </nav>
     </div>
   </header>
 
-  <!-- Scripture Banner (Placed Below Navigation, Above Video/Hero) -->
+  <!-- 2. Scripture Banner -->
   <div class="verse-banner">
     <p id="verse-text">"Cargando versículo..."</p>
     <p id="verse-ref">—</p>
   </div>
 
-  <!-- Full-Width Hero Section with Welcome Video -->
+  <!-- 3. Hero Section with Welcome Video -->
   <section class="hero-banner">
     <div class="hero-content">
       <h1>Bienvenidos a Sala Evangélica de Charlotte</h1>
       <p>Un lugar de adoración, comunión fraternal y proclamación del Evangelio de nuestro Señor Jesucristo.</p>
 
-      <!-- Welcome Video Player -->
       <div class="hero-video-wrapper">
-        <!-- Replace 'VIDEO_ID_AQUI' with your church's welcome video ID -->
         <iframe 
           src="https://www.youtube.com/embed/VIDEO_ID_AQUI" 
           title="Video de Bienvenida - Sala Evangélica Charlotte" 
@@ -528,7 +530,6 @@
         </iframe>
       </div>
 
-      <!-- Action Buttons -->
       <div class="hero-buttons">
         <a href="#reuniones" class="btn btn-amber">
           📅 Horarios de Reunión
@@ -542,13 +543,12 @@
 
   <div class="container">
 
-    <!-- Meetings Schedule -->
+    <!-- 4. Meetings Schedule -->
     <section id="reuniones">
       <h2 class="section-title">Nuestras Reuniones</h2>
       <p class="section-subtitle">Les esperamos con gozo en cada una de nuestras reuniones semanales.</p>
 
       <div class="reuniones-grid">
-        <!-- Domingo -->
         <div class="reunion-card">
           <h3>📅 Domingo</h3>
           <div class="schedule-item">
@@ -561,7 +561,6 @@
           </div>
         </div>
 
-        <!-- Miércoles -->
         <div class="reunion-card">
           <h3>🙏 Miércoles</h3>
           <div class="schedule-item">
@@ -570,7 +569,6 @@
           </div>
         </div>
 
-        <!-- Sábado -->
         <div class="reunion-card">
           <h3>📖 Sábado</h3>
           <div class="schedule-item">
@@ -584,118 +582,106 @@
         </div>
       </div>
     </section>
-<!-- Seccion de Galeria de la Comunidad -->
-<section id="galeria" class="gallery-section">
-  <div class="gallery-container">
-    
-    <div class="gallery-header">
-      <span class="gallery-badge">Nuestra Vida en Comunidad</span>
-      <h2>Galería de Momentos</h2>
-      <p>Un vistazo a lo que Dios está haciendo en nuestra congregación.</p>
-    </div>
 
-    <div class="gallery-grid">
-      
-      <!-- 1. Culto Dominical -->
-      <div class="gallery-card">
-        <div class="gallery-img-wrapper">
-          <img src="images/gallery/culto.jpg" alt="Culto Dominical" loading="lazy">
-          <div class="gallery-overlay">
-            <span class="gallery-tag">Cultos</span>
-            <h3>Culto Dominical</h3>
-            <p>Alabando y exaltando a Dios juntos como una sola familia.</p>
+    <!-- 5. Single Sliding Carousel Gallery -->
+    <section id="galeria" class="gallery-section">
+      <h2 class="section-title">Nuestra Vida en Comunidad</h2>
+      <p class="section-subtitle">Momentos de adoración, comunión fraternal y servicio que reflejan el amor de Dios en nuestra congregación.</p>
+
+      <div class="carousel-container">
+        <div class="carousel-frame">
+          
+          <!-- Slide 1 -->
+          <div class="carousel-slide active">
+            <img src="images/gallery/culto.jpg" alt="Culto Dominical">
+            <div class="carousel-caption">
+              <span class="carousel-badge">Cultos</span>
+              <h3>Culto Dominical</h3>
+              <p>Alabando y exaltando a Dios juntos como una sola familia.</p>
+            </div>
           </div>
-        </div>
-      </div>
 
-      <!-- 2. Comunión y Convivio -->
-      <div class="gallery-card">
-        <div class="gallery-img-wrapper">
-          <img src="images/gallery/comunion.jpg" alt="Comunión y Convivio" loading="lazy">
-          <div class="gallery-overlay">
-            <span class="gallery-tag">Comunión</span>
-            <h3>Comunión y Convivio</h3>
-            <p>Amistades sinceras, bienvenida cálida y apoyo mutuo.</p>
+          <!-- Slide 2 -->
+          <div class="carousel-slide">
+            <img src="images/gallery/comunion.jpg" alt="Comunión y Convivio">
+            <div class="carousel-caption">
+              <span class="carousel-badge">Comunión</span>
+              <h3>Comunión y Convivio</h3>
+              <p>Amistades sinceras, bienvenida cálida y apoyo mutuo.</p>
+            </div>
           </div>
-        </div>
-      </div>
 
-      <!-- 3. La Palabra de Dios -->
-      <div class="gallery-card">
-        <div class="gallery-img-wrapper">
-          <img src="images/gallery/palabra.jpg" alt="La Palabra de Dios" loading="lazy">
-          <div class="gallery-overlay">
-            <span class="gallery-tag">Enseñanza</span>
-            <h3>La Palabra de Dios</h3>
-            <p>Creciendo en la fe a través del estudio bíblico centrado en Cristo.</p>
+          <!-- Slide 3 -->
+          <div class="carousel-slide">
+            <img src="images/gallery/palabra.jpg" alt="La Palabra de Dios">
+            <div class="carousel-caption">
+              <span class="carousel-badge">Enseñanza</span>
+              <h3>La Palabra de Dios</h3>
+              <p>Creciendo en la fe a través del estudio bíblico centrado en Cristo.</p>
+            </div>
           </div>
-        </div>
-      </div>
 
-      <!-- 4. Alabanza y Adoración -->
-      <div class="gallery-card">
-        <div class="gallery-img-wrapper">
-          <img src="images/gallery/alabanza.jpg" alt="Alabanza y Adoración" loading="lazy">
-          <div class="gallery-overlay">
-            <span class="gallery-tag">Música</span>
-            <h3>Alabanza y Gratitud</h3>
-            <p>Expresando adoración mediante la música y el cántico.</p>
+          <!-- Slide 4 -->
+          <div class="carousel-slide">
+            <img src="images/gallery/alabanza.jpg" alt="Alabanza y Adoración">
+            <div class="carousel-caption">
+              <span class="carousel-badge">Música</span>
+              <h3>Alabanza y Gratitud</h3>
+              <p>Expresando adoración mediante la música y el cántico.</p>
+            </div>
           </div>
-        </div>
-      </div>
 
-      <!-- 5. Ministerio Infantil -->
-      <div class="gallery-card">
-        <div class="gallery-img-wrapper">
-          <img src="images/gallery/ninos.jpg" alt="Ministerio Infantil" loading="lazy">
-          <div class="gallery-overlay">
-            <span class="gallery-tag">Familias</span>
-            <h3>Ministerio Infantil</h3>
-            <p>Sembrando la Palabra en un ambiente alegre, dinámico y seguro.</p>
+          <!-- Slide 5 -->
+          <div class="carousel-slide">
+            <img src="images/gallery/ninos.jpg" alt="Ministerio Infantil">
+            <div class="carousel-caption">
+              <span class="carousel-badge">Familias</span>
+              <h3>Ministerio Infantil</h3>
+              <p>Sembrando la Palabra en un ambiente alegre, dinámico y seguro.</p>
+            </div>
           </div>
-        </div>
-      </div>
 
-      <!-- 6. Ministerio Juvenil -->
-      <div class="gallery-card">
-        <div class="gallery-img-wrapper">
-          <img src="images/gallery/jovenes.jpg" alt="Ministerio Juvenil" loading="lazy">
-          <div class="gallery-overlay">
-            <span class="gallery-tag">Jóvenes</span>
-            <h3>Ministerio Juvenil</h3>
-            <p>Una juventud apasionada por Dios, creciendo en compañerismo.</p>
+          <!-- Slide 6 -->
+          <div class="carousel-slide">
+            <img src="images/gallery/jovenes.jpg" alt="Ministerio Juvenil">
+            <div class="carousel-caption">
+              <span class="carousel-badge">Jóvenes</span>
+              <h3>Ministerio Juvenil</h3>
+              <p>Una juventud apasionada por Dios, creciendo en compañerismo.</p>
+            </div>
           </div>
-        </div>
-      </div>
 
-      <!-- 7. Oración e Intercesión -->
-      <div class="gallery-card">
-        <div class="gallery-img-wrapper">
-          <img src="images/gallery/oracion.jpg" alt="Oración e Intercesión" loading="lazy">
-          <div class="gallery-overlay">
-            <span class="gallery-tag">Oración</span>
-            <h3>Oración e Intercesión</h3>
-            <p>Buscando el rostro del Señor juntos e intercediendo por Charlotte.</p>
+          <!-- Slide 7 -->
+          <div class="carousel-slide">
+            <img src="images/gallery/oracion.jpg" alt="Oración e Intercesión">
+            <div class="carousel-caption">
+              <span class="carousel-badge">Oración</span>
+              <h3>Oración e Intercesión</h3>
+              <p>Buscando el rostro del Señor juntos e intercediendo por Charlotte.</p>
+            </div>
           </div>
-        </div>
-      </div>
 
-      <!-- 8. Momentos Especiales -->
-      <div class="gallery-card">
-        <div class="gallery-img-wrapper">
-          <img src="images/gallery/eventos.jpg" alt="Momentos Especiales" loading="lazy">
-          <div class="gallery-overlay">
-            <span class="gallery-tag">Eventos</span>
-            <h3>Momentos Especiales</h3>
-            <p>Celebrando bautismos, testimonios y bendiciones en la iglesia.</p>
+          <!-- Slide 8 -->
+          <div class="carousel-slide">
+            <img src="images/gallery/eventos.jpg" alt="Momentos Especiales">
+            <div class="carousel-caption">
+              <span class="carousel-badge">Eventos</span>
+              <h3>Momentos Especiales</h3>
+              <p>Celebrando bautismos, testimonios y bendiciones en la iglesia.</p>
+            </div>
           </div>
-        </div>
-      </div>
 
-    </div>
-  </div>
-</section>
-    <!-- Social Media / Contact Us Section -->
+          <!-- Navigation Buttons -->
+          <button class="carousel-btn carousel-prev" onclick="prevSlide()" aria-label="Foto anterior">❮</button>
+          <button class="carousel-btn carousel-next" onclick="nextSlide()" aria-label="Siguiente foto">❯</button>
+        </div>
+
+        <!-- Dot Indicators -->
+        <div class="carousel-dots" id="carousel-dots"></div>
+      </div>
+    </section>
+
+    <!-- 6. Social Media / Contact Us -->
     <section id="contacto" class="contact-section">
       <h2 class="section-title">Conéctate Con Nosotros</h2>
       <p class="section-subtitle">
@@ -714,22 +700,35 @@
           <svg viewBox="0 0 24 24">
             <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
           </svg>
+          Facebook
+        </a>
+
+        <a href="https://www.instagram.com/sala_evangelica_charlotte/" target="_blank" class="btn-social btn-instagram">
+          <svg viewBox="0 0 24 24">
+            <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+          </svg>
           Instagram
         </a>
       </div>
     </section>
 
-    <!-- Location & Interactive Google Map -->
+    <!-- 7. Location & Interactive Google Map -->
     <section id="ubicacion" class="location-box">
       <h2>Nuestra Ubicación</h2>
       <p class="address-text">📍 4650 Fairbluff Pl, Charlotte, NC 28209</p>
 
-      <a href="https://maps.google.com/?q=4650+Fairbluff+Pl,+Charlotte,+NC+28209" target="_blank" class="btn btn-amber">
-        Abrir en Google Maps
-      </a>
-<a href="https://maps.apple.com/place?place-id=I7AD59973D36A17FF&address=4650+Fairbluff+Pl%2C+Charlotte%2C+NC++28209%2C+United+States&coordinate=35.171384%2C-80.868434&name=Fairbluff+Bible+Chapel&_provider=9902" target="_blank" class="btn btn-amber">
-        Abrir en Apple Maps
-      </a>
+      <div class="location-actions">
+        <a href="https://maps.apple.com/?q=4650+Fairbluff+Pl,+Charlotte,+NC+28209" target="_blank" rel="noopener noreferrer" class="btn btn-apple-map">
+          <svg style="width:18px;height:18px;" viewBox="0 0 24 24" fill="currentColor"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M15.97 6.37c.61-.75 1.04-1.8 0.92-2.87-.93.04-2.02.63-2.67 1.39-.56.65-1.06 1.71-.93 2.74 1.04.08 2.07-.53 2.68-1.26z"/></svg>
+          Abrir en Apple Maps
+        </a>
+
+        <a href="https://maps.google.com/?q=4650+Fairbluff+Pl,+Charlotte,+NC+28209" target="_blank" rel="noopener noreferrer" class="btn btn-amber">
+          <svg style="width:18px;height:18px;" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+          Abrir en Google Maps
+        </a>
+      </div>
+
       <div class="map-frame">
         <iframe 
           src="https://maps.google.com/maps?q=4650%20Fairbluff%20Pl,%20Charlotte,%20NC%2028209&t=&z=15&ie=UTF8&iwloc=&output=embed" 
@@ -744,12 +743,14 @@
 
   </div>
 
+  <!-- 8. Footer -->
   <footer>
     &copy; 2026 Sala Evangélica Charlotte. Todos los derechos reservados.
   </footer>
 
-  <!-- Script for Random Scripture Generator -->
+  <!-- 9. Scripts: Scripture Generator & Photo Carousel -->
   <script>
+    /* Scripture Generator */
     const versiculos = [
       {
         texto: "Porque de tal manera amó Dios al mundo, que ha dado a su Hijo unigénito, para que todo aquel que en él cree, no se pierda, mas tenga vida eterna.",
@@ -784,6 +785,63 @@
     const randomIndex = Math.floor(Math.random() * versiculos.length);
     document.getElementById("verse-text").textContent = `"${versiculos[randomIndex].texto}"`;
     document.getElementById("verse-ref").textContent = `— ${versiculos[randomIndex].cita}`;
+
+    /* Photo Carousel Logic */
+    const slides = document.querySelectorAll('.carousel-slide');
+    const dotsContainer = document.getElementById('carousel-dots');
+    let currentSlide = 0;
+    let slideTimer;
+
+    // Create interactive navigation dots
+    slides.forEach((_, idx) => {
+      const dot = document.createElement('div');
+      dot.classList.add('dot');
+      if (idx === 0) dot.classList.add('active');
+      dot.addEventListener('click', () => {
+        goToSlide(idx);
+        restartTimer();
+      });
+      dotsContainer.appendChild(dot);
+    });
+
+    const dots = document.querySelectorAll('.dot');
+
+    function updateSlides() {
+      slides.forEach((slide, idx) => {
+        slide.classList.toggle('active', idx === currentSlide);
+      });
+      dots.forEach((dot, idx) => {
+        dot.classList.toggle('active', idx === currentSlide);
+      });
+    }
+
+    function nextSlide() {
+      currentSlide = (currentSlide + 1) % slides.length;
+      updateSlides();
+      restartTimer();
+    }
+
+    function prevSlide() {
+      currentSlide = (currentSlide - 1 + slides.length) % slides.length;
+      updateSlides();
+      restartTimer();
+    }
+
+    function goToSlide(idx) {
+      currentSlide = idx;
+      updateSlides();
+    }
+
+    function startTimer() {
+      slideTimer = setInterval(nextSlide, 5000); // 5-second auto transition
+    }
+
+    function restartTimer() {
+      clearInterval(slideTimer);
+      startTimer();
+    }
+
+    startTimer();
   </script>
 
 </body>
