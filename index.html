@@ -350,6 +350,143 @@
       .btn-social { justify-content: center; }
       .hero-buttons { flex-direction: column; }
     }
+    /* ==========================================
+   Gallery Section Styling
+   ========================================== */
+.gallery-section {
+  padding: 80px 20px;
+  background-color: #f8fafc;
+}
+
+.gallery-container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.gallery-header {
+  text-align: center;
+  margin-bottom: 48px;
+}
+
+.gallery-badge {
+  display: inline-block;
+  font-size: 0.85rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: #2563eb;
+  background-color: #dbeafe;
+  padding: 6px 14px;
+  border-radius: 50px;
+  margin-bottom: 12px;
+}
+
+.gallery-header h2 {
+  font-size: 2.25rem;
+  font-weight: 800;
+  color: #0f172a;
+  margin-bottom: 10px;
+}
+
+.gallery-header p {
+  font-size: 1.1rem;
+  color: #64748b;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+/* Responsive Grid: 1 col on mobile, 2 on tablet, 3 or 4 on desktop */
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 24px;
+}
+
+.gallery-card {
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.08), 0 4px 6px -4px rgba(0, 0, 0, 0.04);
+  background-color: #1e293b;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.gallery-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.15), 0 8px 10px -6px rgba(0, 0, 0, 0.08);
+}
+
+.gallery-img-wrapper {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
+}
+
+.gallery-img-wrapper img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.5s ease;
+}
+
+.gallery-card:hover .gallery-img-wrapper img {
+  transform: scale(1.08);
+}
+
+/* Gradient Overlay & Text */
+.gallery-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(15, 23, 42, 0.95) 0%, rgba(15, 23, 42, 0.4) 60%, transparent 100%);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 24px;
+  color: #ffffff;
+}
+
+.gallery-tag {
+  align-self: flex-start;
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+  background-color: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(4px);
+  padding: 3px 10px;
+  border-radius: 4px;
+  margin-bottom: 8px;
+}
+
+.gallery-overlay h3 {
+  font-size: 1.25rem;
+  font-weight: 700;
+  margin: 0 0 6px 0;
+  line-height: 1.3;
+}
+
+.gallery-overlay p {
+  font-size: 0.88rem;
+  color: #cbd5e1;
+  margin: 0;
+  line-height: 1.4;
+}
+
+/* Mobile adjustments */
+@media (max-width: 640px) {
+  .gallery-section {
+    padding: 50px 16px;
+  }
+  
+  .gallery-header h2 {
+    font-size: 1.85rem;
+  }
+
+  .gallery-overlay {
+    padding: 18px;
+  }
+}
   </style>
 </head>
 <body>
@@ -445,7 +582,117 @@
         </div>
       </div>
     </section>
+<!-- Seccion de Galeria de la Comunidad -->
+<section id="galeria" class="gallery-section">
+  <div class="gallery-container">
+    
+    <div class="gallery-header">
+      <span class="gallery-badge">Nuestra Vida en Comunidad</span>
+      <h2>Galería de Momentos</h2>
+      <p>Un vistazo a lo que Dios está haciendo en nuestra congregación.</p>
+    </div>
 
+    <div class="gallery-grid">
+      
+      <!-- 1. Culto Dominical -->
+      <div class="gallery-card">
+        <div class="gallery-img-wrapper">
+          <img src="images/gallery/culto.jpg" alt="Culto Dominical" loading="lazy">
+          <div class="gallery-overlay">
+            <span class="gallery-tag">Cultos</span>
+            <h3>Culto Dominical</h3>
+            <p>Alabando y exaltando a Dios juntos como una sola familia.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- 2. Comunión y Convivio -->
+      <div class="gallery-card">
+        <div class="gallery-img-wrapper">
+          <img src="images/gallery/comunion.jpg" alt="Comunión y Convivio" loading="lazy">
+          <div class="gallery-overlay">
+            <span class="gallery-tag">Comunión</span>
+            <h3>Comunión y Convivio</h3>
+            <p>Amistades sinceras, bienvenida cálida y apoyo mutuo.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- 3. La Palabra de Dios -->
+      <div class="gallery-card">
+        <div class="gallery-img-wrapper">
+          <img src="images/gallery/palabra.jpg" alt="La Palabra de Dios" loading="lazy">
+          <div class="gallery-overlay">
+            <span class="gallery-tag">Enseñanza</span>
+            <h3>La Palabra de Dios</h3>
+            <p>Creciendo en la fe a través del estudio bíblico centrado en Cristo.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- 4. Alabanza y Adoración -->
+      <div class="gallery-card">
+        <div class="gallery-img-wrapper">
+          <img src="images/gallery/alabanza.jpg" alt="Alabanza y Adoración" loading="lazy">
+          <div class="gallery-overlay">
+            <span class="gallery-tag">Música</span>
+            <h3>Alabanza y Gratitud</h3>
+            <p>Expresando adoración mediante la música y el cántico.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- 5. Ministerio Infantil -->
+      <div class="gallery-card">
+        <div class="gallery-img-wrapper">
+          <img src="images/gallery/ninos.jpg" alt="Ministerio Infantil" loading="lazy">
+          <div class="gallery-overlay">
+            <span class="gallery-tag">Familias</span>
+            <h3>Ministerio Infantil</h3>
+            <p>Sembrando la Palabra en un ambiente alegre, dinámico y seguro.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- 6. Ministerio Juvenil -->
+      <div class="gallery-card">
+        <div class="gallery-img-wrapper">
+          <img src="images/gallery/jovenes.jpg" alt="Ministerio Juvenil" loading="lazy">
+          <div class="gallery-overlay">
+            <span class="gallery-tag">Jóvenes</span>
+            <h3>Ministerio Juvenil</h3>
+            <p>Una juventud apasionada por Dios, creciendo en compañerismo.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- 7. Oración e Intercesión -->
+      <div class="gallery-card">
+        <div class="gallery-img-wrapper">
+          <img src="images/gallery/oracion.jpg" alt="Oración e Intercesión" loading="lazy">
+          <div class="gallery-overlay">
+            <span class="gallery-tag">Oración</span>
+            <h3>Oración e Intercesión</h3>
+            <p>Buscando el rostro del Señor juntos e intercediendo por Charlotte.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- 8. Momentos Especiales -->
+      <div class="gallery-card">
+        <div class="gallery-img-wrapper">
+          <img src="images/gallery/eventos.jpg" alt="Momentos Especiales" loading="lazy">
+          <div class="gallery-overlay">
+            <span class="gallery-tag">Eventos</span>
+            <h3>Momentos Especiales</h3>
+            <p>Celebrando bautismos, testimonios y bendiciones en la iglesia.</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
     <!-- Social Media / Contact Us Section -->
     <section id="contacto" class="contact-section">
       <h2 class="section-title">Conéctate Con Nosotros</h2>
