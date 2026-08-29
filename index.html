@@ -479,8 +479,8 @@
       border-top: 1px solid #e7e2d9;
     }
 
-     @media (max-width: 768px) {
-      /* Stack header logo and navigation links cleanly */
+       @media (max-width: 768px) {
+      /* 1. Header Navigation */
       .nav-container {
         flex-direction: column;
         gap: 0.75rem;
@@ -501,18 +501,47 @@
         font-size: 0.88rem;
       }
 
-      /* Hero & other sections */
+      /* 2. Hero Section */
       .hero-banner h1 { font-size: 2.15rem; }
       .hero-banner { padding: 3.5rem 1.25rem 3rem 1.25rem; }
       .social-buttons { flex-direction: column; }
       .btn-social { justify-content: center; }
       .hero-buttons { flex-direction: column; }
       .location-actions { flex-direction: column; }
-      .carousel-frame { aspect-ratio: 4 / 3; }
-      .carousel-caption { padding: 1.25rem; }
-      .carousel-caption h3 { font-size: 1.15rem; }
-      .carousel-caption p { font-size: 0.85rem; }
+
+      /* 3. Carousel - Fix photo height, text overlap, and arrow placement */
+      .carousel-frame {
+        aspect-ratio: 1 / 1; /* Clean square on mobile gives vertical room */
+        border-radius: 16px;
+      }
+      
+      .carousel-caption {
+        padding: 1.75rem 1rem 0.85rem 1rem; /* Compact gradient overlay */
+      }
+      .carousel-badge {
+        font-size: 0.68rem;
+        padding: 2px 7px;
+        margin-bottom: 3px;
+      }
+      .carousel-caption h3 {
+        font-size: 1.05rem;
+        margin-bottom: 2px;
+      }
+      .carousel-caption p {
+        font-size: 0.78rem;
+        line-height: 1.35;
+      }
+
+      /* Smaller, discreet arrows positioned safely on sides */
+      .carousel-btn {
+        width: 34px;
+        height: 34px;
+        font-size: 0.95rem;
+      }
+      .carousel-prev { left: 8px; }
+      .carousel-next { right: 8px; }
     }
+
 
   </style>
 </head>
