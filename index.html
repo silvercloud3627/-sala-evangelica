@@ -479,10 +479,31 @@
       border-top: 1px solid #e7e2d9;
     }
 
-    @media (max-width: 768px) {
+     @media (max-width: 768px) {
+      /* Stack header logo and navigation links cleanly */
+      .nav-container {
+        flex-direction: column;
+        gap: 0.75rem;
+        padding: 0.85rem 1rem;
+        text-align: center;
+      }
+      .logo {
+        font-size: 1.25rem;
+      }
+      nav {
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 0.85rem;
+      }
+      nav a {
+        margin-left: 0;
+        font-size: 0.88rem;
+      }
+
+      /* Hero & other sections */
       .hero-banner h1 { font-size: 2.15rem; }
       .hero-banner { padding: 3.5rem 1.25rem 3rem 1.25rem; }
-      nav a { margin-left: 0.75rem; font-size: 0.85rem; }
       .social-buttons { flex-direction: column; }
       .btn-social { justify-content: center; }
       .hero-buttons { flex-direction: column; }
@@ -492,6 +513,7 @@
       .carousel-caption h3 { font-size: 1.15rem; }
       .carousel-caption p { font-size: 0.85rem; }
     }
+
   </style>
 </head>
 <body>
